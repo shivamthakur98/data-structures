@@ -51,5 +51,5 @@ while no_of_test_cases > 0:
     head = takeInput()
     newHead = reverse(head)
     printLL(newHead)
-
+    no_of_test_cases -= 1
  

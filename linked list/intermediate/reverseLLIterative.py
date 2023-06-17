@@ -31,7 +31,6 @@ def printLL(head):
         currNode = currNode.next
     print("None")
 
-
 def reverse(head):
     currNode = head
     prevNode = None
@@ -44,6 +43,30 @@ def reverse(head):
 
     return prevNode
 
+'''
+    Reverse the Singly linked list recursively
+    Approach one will be giving n-1 value for recursion to reverse
+    and adding head to last. But this is not efficiend
+    and this soulution will take O(n) time
+    Reccurence Relation: T(n) = T(n-1) + n*k
+
+    Recursively reversing the list in the O(n)
+'''
+def reverse2(head, prev):
+    if head == None:
+        return head
+
+    if head.next == None:
+        head.next = prev
+        return head
+
+    # Inductive step
+    newNode = head.next
+    head.next = prev
+    prev = head
+
+    # Induction hypothesis
+    return reverse2(newNode, prev)
 
 no_of_test_cases = int(input("Enter no. of test-cases: "))
 
@@ -51,5 +74,8 @@ while no_of_test_cases > 0:
     head = takeInput()
     newHead = reverse(head)
     printLL(newHead)
+    print("Above list will be reversed recurrsively:")
+    newHead2 = reverse2(newHead, None)
+    printLL(newHead2)
     no_of_test_cases -= 1
  

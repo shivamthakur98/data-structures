@@ -31,10 +31,10 @@ def printLL(head):
         currNode = currNode.next
     print("None")
 
-no_of_test_cases = int(input("Enter no. of test-cases"))
+no_of_test_cases = int(input("Enter no. of test-cases: "))
 
 while no_of_test_cases > 0:
     head = takeInput()
-    printLL(newHead)
+    printLL(head)
 
     no_of_test_cases -= 1

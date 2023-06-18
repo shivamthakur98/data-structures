@@ -44,15 +44,63 @@ def reverse(head):
     return prevNode
 
 '''
-    Reverse the Singly linked list recursively
-    Approach one will be giving n-1 value for recursion to reverse
-    and adding head to last. But this is not efficiend
-    and this soulution will take O(n) time
-    Reccurence Relation: T(n) = T(n-1) + n*k
+    Following are the 4 approaches to reverse the ll recursively
+'''
+'''
+    Approach 1: simple approach with time complexity of O(n^2)
+'''
+def reverse1(head, prev):
+    if head == None or head.next == None:
+        return head
 
-    Recursively reversing the list in the O(n)
+    # Inductive step
+    newHead = reverse1(head.next)
+    currNode = newHead
+
+    while currNode.next != None:
+        currNode = currNode.next
+
+    currNode.next = head
+    head.next = None
+
+    return newHead
+
+'''
+    Approach 2: We will return head as well as tail 
 '''
 def reverse2(head, prev):
+    if head == None or head.next == None:
+        return head
+
+    # Inductive step
+    newHead, prevTail = reverse1(head.next)
+
+    prevTail.next = head
+    head.next = None
+
+    return newHead
+
+'''
+    Approach 3: We can get the tail from the head itself 
+'''
+def reverse3(head, prev):
+    if head == None or head.next == None:
+        return head
+
+    # Inductive step
+    newHead = reverse1(head.next)
+
+    prevTail = head.next
+    prevTail.next = head
+    head.next = None
+
+    return newHead
+
+
+'''
+    Approach 4: Following the same approach of iterative solution
+'''
+def reverse4(head, prev):
     if head == None:
         return head
 

@@ -87,6 +87,29 @@ def insert(head, i, data):
 
     return head
 
+'''
+    deletion from the Circular linked list
+'''
+def delete(head, i):
+    if i < 0 or i >= length(head):
+        return head
+    currNode = head.next
+    pos = 1
+    if i == 0:
+        head.prev.next = head.next
+        head.next.prev = head.prev
+        head = head.next
+        return head
+
+    while currNode != head:
+        if pos == i:
+            currNode.prev.next = currNode.next
+            currNode.next.prev = currNode.prev
+            break
+        pos += 1
+        currNode = currNode.next
+    return head
+ 
 no_of_test_cases = int(input("Enter no. of test-cases: "))
 
 while no_of_test_cases > 0:
@@ -98,5 +121,12 @@ while no_of_test_cases > 0:
     newHead = insert(head, pos, data)
     print("New list")
     printLL(newHead)
+
+    print("Enter the element to be deleted: ")
+    pos = int(input("pos: "))
+    head2 = delete(newHead, pos)
+    print("New list")
+    printLL(head2)
+
 
     no_of_test_cases -= 1

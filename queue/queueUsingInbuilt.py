@@ -1,5 +1,6 @@
 from queueUsingArr import Queue as QueueArr
 from queueUsingLL import Queue as QueueLL
+from queueUsingTwoStacks import Queue as QueueStk
 import queue
 
 q1 = QueueArr()
@@ -39,5 +40,17 @@ q3.put(5)
 
 while q3.empty() != True:
     print(q3.get())
+
+print("Queue operations with Two Stacks queue")
+q4 = QueueStk()
+q4.enqueue(1)
+q4.enqueue(2)
+q4.enqueue(3)
+q4.enqueue(4)
+q4.enqueue(5)
+
+
+while q4.isEmpty() != True:
+    print(q4.dequeue())
 
 

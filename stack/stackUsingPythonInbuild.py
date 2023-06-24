@@ -1,7 +1,7 @@
 from stackUsingArr import Stack
 from stackUsingLL import Stack as StackLL
 from stackUsingTwoQueues import Stack as StackQ
-from queue import Queue
+from queue import LifoQueue as Queue
 
 '''
     Stack using Array

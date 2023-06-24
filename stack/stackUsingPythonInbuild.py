@@ -1,5 +1,6 @@
 from stackUsingArr import Stack
 from stackUsingLL import Stack as StackLL
+from stackUsingTwoQueues import Stack as StackQ
 from queue import Queue
 
 '''
@@ -41,5 +42,17 @@ stack.put(3)
 
 while stack.empty() == False:
     print(stack.get())
+
+'''
+    Stack using Two Queues
+'''
+print("Stack operation using queues")
+stack = StackQ()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+
+while stack.isEmpty() == False:
+    print(stack.pop())
 
 
